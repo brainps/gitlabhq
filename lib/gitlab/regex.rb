@@ -19,12 +19,13 @@ module Gitlab
       "It must start with letter, digit, emoji or '_'."
     end
 
+    # 2017Jun07 Brockman - Adding a patch to allow whitespace in filenames.
     def file_name_regex
-      @file_name_regex ||= /\A[[[:alnum:]]_\-\.\@\+]*\z/.freeze
+      @file_name_regex ||= /\A[[[:alnum:]]_\-\.\@\+ ]*\z/.freeze
     end
 
     def file_name_regex_message
-      "can contain only letters, digits, '_', '-', '@', '+' and '.'."
+      "can contain only letters, digits, ' ', '_', '-', '@', '+' and '.'."
     end
 
     def container_registry_reference_regex
